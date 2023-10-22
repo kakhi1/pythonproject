@@ -4,10 +4,12 @@ class Client(models.Model):
     username = models.CharField(max_length=255, unique=True)
     siteid = models.IntegerField()
     filterwordsid = models.IntegerField()
-    tts_enabled = models.BooleanField(default=False)
+    tts_enabled = models.BooleanField(default=True)
 
     def __str__(self):
         return self.username
+
+
 
 class FilterWord(models.Model):
     clientid = models.ForeignKey(Client, on_delete=models.CASCADE)
